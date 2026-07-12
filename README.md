@@ -46,7 +46,7 @@ every change. Tested against a real Cisco Catalyst 8000v via Cisco DevNet.
 ## How to Run
 
 ### 1. Clone the repo
-git clone https://github.com/[shreyatom]/network-automation-suite.git
+git clone https://github.com/shreyatom/network-automation-suite.git
 cd network-automation-suite
 
 ### 2. Install dependencies

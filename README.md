@@ -21,6 +21,7 @@ every change. Tested against a real Cisco Catalyst 8000v via Cisco DevNet.
 | Python 3.13  | Core automation language                   |
 | Netmiko 4.7  | SSH library for Cisco IOS device mgmt      |
 | Pytest 9.1   | Validates config changes were applied      |
+| python-dotenv | Loads device credentials from the `.env` file |
 | Cisco DevNet | Free always-on real Cisco IOS XE sandbox   |
 
 ---
@@ -52,10 +53,23 @@ cd network-automation-suite
 ### 2. Install dependencies
 pip install -r requirements.txt
 
-### 3. Update inventory.py with your device credentials
-DEVICES = [
-    {'device_type': 'cisco_ios', 'host': 'YOUR_DEVICE_IP', ...}
-]
+### 3. Configure environment variables
+
+Create a `.env` file in the project root (or copy `.env.example`).
+
+Example:
+
+```env
+DEVICE_HOST=your_device_ip_or_hostname
+DEVICE_USERNAME=your_username
+DEVICE_PASSWORD=your_password
+DEVICE_SECRET=your_enable_password
+DEVICE_PORT=22
+```
+
+The application automatically loads these values when connecting to the device.
+
+> **Note:** The `.env` file is excluded from Git using `.gitignore` to keep your credentials secure.
 
 ### 4. Run a script
 python scripts/backup_configs.py
